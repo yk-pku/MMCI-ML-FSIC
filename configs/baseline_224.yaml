@@ -1,0 +1,32 @@
+base: []
+seed: 233
+model:
+    kind: ResNet
+    resume:
+    sync_bn: True
+    kwargs:
+        num_classes: 52
+dataset:
+    kind: VanillaDataset
+    train_batch_size: 64
+    eval_batch_size: 1
+    num_workers: 2
+    kwargs:
+        phase: 'train'
+        coco_jsons: ['coco_train.json', 'coco_val.json']
+        data_dir: '/home/sdb/pku/Data/public/coco2014'
+        augment: True
+        repeats: 1
+trainer:
+    save_freq: 10
+    optimizer:
+        kind: Adam
+        kwargs: {}
+    lr_schedule:
+        start_warmup: 0.00_000_1
+        warmup_epochs: 10
+        base_lr: 0.00_01
+        final_lr: 0.00_01
+        cosine_epochs: 190
+        cosine_times: 1
+metric: {}
