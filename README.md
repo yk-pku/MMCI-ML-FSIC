@@ -2,5 +2,5 @@
 
 This is a reimplemented version using the commonly used pytorch. 
 
-You can simply run the program through the command ```run example.py```
+You can simply run the program through the command ```python example.py```
 
